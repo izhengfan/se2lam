@@ -1,0 +1,12 @@
+catkin_generated/*
+CMakeFiles/*
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+odoslam.cbp
+CMakeLists.txt.user
+Makefile
+Thirdparty/DBoW2/build/
+Thirdparty/DBoW2/lib/*
+*.bag
+**/*voc.bin
