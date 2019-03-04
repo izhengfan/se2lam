@@ -1,6 +1,6 @@
 se2lam
 ---
-On-SE(2) Localization and Mapping
+On-SE(2) Visual-Odometric Localization and Mapping
 
 ### Related Publication
 
