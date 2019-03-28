@@ -6,6 +6,16 @@ On-SE(2) Localization and Mapping for Ground Vehicles by Fusing Odometry and Vis
 
 - Fan Zheng, Yun-Hui Liu. "Visual-Odometric Localization and Mapping for Ground Vehicles Using SE(2)-XYZ Constraints". _Proc. IEEE  International Conference on Robotics and Automation (ICRA)_, 2019 \[[pdf](https://fzheng.me/icra/2019.pdf)\]
 
+  To cite it in bib:
+  ```
+  @inproceedings{fzheng2019icra,
+      author    = {Fan Zheng and Yun-Hui Liu},
+      title     = "{Visual-Odometric Localization and Mapping for Ground Vehicles Using SE(2)-XYZ Constraints}",
+      booktitle = {Proc. IEEE Int. Conf. Robot. Autom (ICRA)},
+      year      = {2019},
+  }
+  ```
+
   [![result in rviz](https://images.gitee.com/uploads/images/2019/0304/152353_36314cbb_874043.jpeg)](https://mycuhk-my.sharepoint.com/:v:/g/personal/1155051778_link_cuhk_edu_hk/EeIO3MJtH5pHsFkIRGHJbLEBRhRBGRRG6pwR19SFCrhQwQ?e=vbSLzS)
 
 ### Dependencies
