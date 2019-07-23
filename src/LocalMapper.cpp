@@ -326,7 +326,7 @@ void LocalMapper::run(){
 
             pruneRedundantKfInMap();
 
-            removeOutlierChi2();
+            //removeOutlierChi2();
 
             updateLocalGraphInMap();
 
