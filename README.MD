@@ -36,7 +36,7 @@ Build this project as a ROS package
 
    We prepare two packages of odometry measurement data, one is more accurate (`odo_raw_accu.txt`), the other less accurate (`odo_raw_roug.txt`). To use either one of them, copy it to `odo_raw.txt` in `DatasetRoom/`.
 
-2. Download [ORBvoc.bin](https://gitee.com/paopaoslam/ORB-SLAM2/attach_files/62911/download).
+2. Download [ORBvoc.bin](https://gitee.com/paopaoslam/ORB-SLAM2/attach_files/).
 
 3. Run rviz:
 
