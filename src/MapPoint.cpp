@@ -131,7 +131,7 @@ void MapPoint::updateParallax(const PtrKeyFrame &pKF){
         PtrKeyFrame pKF_ = it->first;
         if(pKF->mIdKF - pKF_->mIdKF > 6)
             continue;
-        if(pKF_->mIdKF < pKF_->mIdKF) {
+        if(pKF_->mIdKF < pKF0->mIdKF) {
             pKF0 = pKF_;
         }
     }
