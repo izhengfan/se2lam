@@ -24,6 +24,9 @@ Frame::Frame(const Mat &im, const Se2& odo, ORBextractor *extractor, const Mat &
 
     (*mpORBExtractor)(img, cv::Mat(), keyPoints, descriptors);
 
+    id = nextId;
+    nextId++;
+
     N = keyPoints.size();
     if(keyPoints.empty())
         return;
@@ -39,9 +42,6 @@ Frame::Frame(const Mat &im, const Se2& odo, ORBextractor *extractor, const Mat &
 
         mbInitialComputations = false;
     }
-
-    id = nextId;
-    nextId++;
 
     //Scale Levels Info
     mnScaleLevels = mpORBExtractor->GetLevels();
