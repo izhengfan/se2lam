@@ -431,12 +431,12 @@ bool Localizer::VerifyLoopClose(map<int,int> & mapMatchMP, map<int,int> & mapMat
 }
 
 vector<PtrKeyFrame> Localizer::GetLocalKFs() {
-    locker lock(mutex mMutexKFLocal);
+    locker lock(mMutexKFLocal);
     return vector<PtrKeyFrame>(mspKFLocal.begin(), mspKFLocal.end());
 }
 
 vector<PtrMapPoint> Localizer::GetLocalMPs() {
-    locker lock(mutex mMutexMPLocal);
+    locker lock(mMutexMPLocal);
     return vector<PtrMapPoint>(mspMPLocal.begin(), mspMPLocal.end());
 }
 
