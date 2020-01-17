@@ -4,7 +4,7 @@ On-SE(2) Localization and Mapping for Ground Vehicles by Fusing Odometry and Vis
 
 ### Related Publication
 
-- Fan Zheng, Yun-Hui Liu. "Visual-Odometric Localization and Mapping for Ground Vehicles Using SE(2)-XYZ Constraints". _Proc. IEEE  International Conference on Robotics and Automation (ICRA)_, 2019 \[[pdf](https://fzheng.me/icra/2019.pdf)\] \[[poster](https://fzheng.me/se2lam/poster_fzheng.pdf)\]
+- Fan Zheng, Yun-Hui Liu. "Visual-Odometric Localization and Mapping for Ground Vehicles Using SE(2)-XYZ Constraints". _Proc. IEEE  International Conference on Robotics and Automation (ICRA)_, 2019 \[[pdf](https://fzheng.me/icra/2019.pdf)\] \[[poster](poster_fzheng.pdf)\]
 
   To cite it in bib:
   ```
