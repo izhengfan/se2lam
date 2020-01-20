@@ -126,12 +126,14 @@ void MapPoint::updateParallax(const PtrKeyFrame &pKF){
         return;
 
     // Get the oldest KF in the last 6 KFs
-    PtrKeyFrame pKF0 = mObservations.begin()->first;
-    for(auto it = mObservations.begin(), iend = mObservations.end(); it != iend; it++) {
+    PtrKeyFrame pKF0 = nullptr;
+    for(auto it = mObservations.begin(), iend = mObservations.end(); it != iend; it++)
+    {
         PtrKeyFrame pKF_ = it->first;
         if(pKF->mIdKF - pKF_->mIdKF > 6)
             continue;
-        if(pKF_->mIdKF < pKF0->mIdKF) {
+       if(pKF0==nullptr || pKF_->mIdKF < pKF0->mIdKF)
+        {
             pKF0 = pKF_;
         }
     }
