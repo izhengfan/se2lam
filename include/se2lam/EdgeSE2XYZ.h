@@ -92,7 +92,7 @@ public:
         _jacobianOplusXi.block<2,2>(0,0) = -Ri.transpose();
         _jacobianOplusXi.block<2,1>(0,2) = -Ri.transpose() * rij_x;
         _jacobianOplusXi.block<1,2>(2,0).setZero();
-        _jacobianOplusXi(2,2) = 1;
+        _jacobianOplusXi(2,2) = -1;
 
         _jacobianOplusXj.setIdentity();
         _jacobianOplusXj.block<2,2>(0,0) = Ri.transpose();
