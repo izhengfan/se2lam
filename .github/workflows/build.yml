@@ -35,7 +35,7 @@ jobs:
         
     - name: build
       run: |
-        source ~/.bashrc
+        source /opt/ros/melodic/setup.bash
         mkdir build
         cd build
         cmake .. 
