@@ -17,10 +17,12 @@ jobs:
         sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
         sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
         sudo apt-get update
-        sudo apt-get install -y libopencv-dev libeigen3-dev libsuitesparse-dev ros-melodic-desktop
+        sudo apt-get install -y libopencv-dev libeigen3-dev libsuitesparse-dev ros-melodic-desktop python-rosdep
         echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
         source ~/.bashrc
-        
+        sudo rosdep init
+        rosdep update
+       
     - name: build g2o
       run: |
         git clone -b 20160424_git https://github.com/RainerKuemmerle/g2o.git
@@ -33,6 +35,7 @@ jobs:
         
     - name: build
       run: |
+        source ~/.bashrc
         mkdir build
         cd build
         cmake .. 
