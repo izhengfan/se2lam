@@ -20,8 +20,6 @@ jobs:
         sudo apt-get install -y libopencv-dev libeigen3-dev libsuitesparse-dev ros-melodic-desktop
         echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
         source ~/.bashrc
-        mkdir build
-        cd build
         
     - name: build g2o
       run: |
