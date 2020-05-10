@@ -22,21 +22,14 @@ jobs:
         source ~/.bashrc
         sudo rosdep init
         rosdep update
-       
-    - name: build g2o
-      run: |
-        git clone -b 20160424_git https://github.com/RainerKuemmerle/g2o.git
-        cd g2o
-        mkdir build
-        cd build 
-        cmake .. -DCMAKE_BUILD_TYPE=Release -DG2O_BUILD_EXAMPLES=OFF -DG2O_BUILD_APPS=OFF -DG2O_USE_OPENGL=OFF
-        make
-        sudo make install
         
     - name: build
       run: |
         source /opt/ros/melodic/setup.bash
         mkdir build
         cd build
+        git clone https://gitee.com/izhengfan/g2o_2016_installed.git
+        sudo mv g2o_2016_installed/include/g2o /usr/local/include/g2o
+        sudo mv g2o_2016_installed/lib/*.so /usr/local/lib/
         cmake .. 
         make
