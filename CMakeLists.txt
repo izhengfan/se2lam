@@ -85,7 +85,6 @@ list(APPEND LINK_LIBS
 list(APPEND G2O_LIBS
   cxsparse
   cholmod
-  g2o_cli
   g2o_solver_slam2d_linear g2o_types_icp g2o_types_slam2d
   g2o_core g2o_solver_csparse g2o_solver_structure_only
   g2o_types_sba g2o_types_slam3d g2o_csparse_extension

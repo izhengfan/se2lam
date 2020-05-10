@@ -2,6 +2,8 @@ se2lam
 ---
 On-SE(2) Localization and Mapping for Ground Vehicles by Fusing Odometry and Vision
 
+[![](../../workflows/Build/badge.svg)](../../actions?query=workflow%3A"Build")
+
 ### Related Publication
 
 - Fan Zheng, Yun-Hui Liu. "Visual-Odometric Localization and Mapping for Ground Vehicles Using SE(2)-XYZ Constraints". _Proc. IEEE  International Conference on Robotics and Automation (ICRA)_, 2019 \[[pdf](https://fzheng.me/icra/2019.pdf)\] \[[poster](poster_fzheng.pdf)\]
