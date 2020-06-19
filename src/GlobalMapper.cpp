@@ -1002,13 +1002,6 @@ void GlobalMapper::OptKFPairMatch(PtrKeyFrame _pKF1, PtrKeyFrame _pKF2, map<int,
              << " outliers by 3D MP to KF measurements." << endl;
     }
 
-    for (auto it = sIdMPin1Outlier.begin();
-         it != sIdMPin1Outlier.end(); it++) {
-        int idMatch = *it;
-        mapMatch.erase(idMatch);
-    }
-    numMatch = mapMatch.size();
-
     // Return optimize results
     _vSe3KFs.clear();
     for (int i=0; i<2; i++) {
@@ -1017,10 +1010,20 @@ void GlobalMapper::OptKFPairMatch(PtrKeyFrame _pKF1, PtrKeyFrame _pKF2, map<int,
     }
 
     _vPt3MPs.clear();
+    vertexId = 1;
+    for (auto iter = mapMatch.begin(); iter != mapMatch.end(); iter++) {
+        vertexId++;
+        if (sIdMPin1Outlier.count(iter->first))
+            continue;
+        g2o::Vector3D Pt3MPj = estimateVertexXYZ(optimizer, vertexId);
+        _vPt3MPs.push_back(Pt3MPj);
+    }
+	/*
     for (int j=0; j<numMatch; j++) {
         g2o::Vector3D Pt3MPj = estimateVertexXYZ(optimizer, j+2);
         _vPt3MPs.push_back(Pt3MPj);
     }
+	 */
 }
 
 void GlobalMapper::PrintSE3(const g2o::SE3Quat se3) {
