@@ -783,9 +783,10 @@ int GlobalMapper::CreateFeatEdge(PtrKeyFrame _pKFFrom, PtrKeyFrame _pKFTo, map<i
 {
     vector<g2o::SE3Quat, Eigen::aligned_allocator<g2o::SE3Quat> > vSe3KFs;
     vector<g2o::Vector3D, Eigen::aligned_allocator<g2o::Vector3D> > vPt3MPs;
+    set<int> sIdMPin1Outlier;
 
     //! Optimize Local Graph with Only 2 KFs and MPs matched, and remove outlier by 3D measurements
-    OptKFPairMatch(_pKFFrom, _pKFTo, mapMatch, vSe3KFs, vPt3MPs);
+    OptKFPairMatch(_pKFFrom, _pKFTo, mapMatch, vSe3KFs, vPt3MPs, sIdMPin1Outlier);
     if (mapMatch.size() < 3) {
         return 1;
     }
@@ -795,6 +796,8 @@ int GlobalMapper::CreateFeatEdge(PtrKeyFrame _pKFFrom, PtrKeyFrame _pKFTo, map<i
 
     int count = 0;
     for (auto iter = mapMatch.begin(); iter != mapMatch.end(); iter++) {
+        if (sIdMPin1Outlier.count(iter->first))
+            continue;
 
         int idxMPin1 = iter->first;
         //        PtrMapPoint pMPin1 = _pKFFrom->mDualObservations[idxMPin1];
@@ -924,7 +927,9 @@ void GlobalMapper::OptKFPair(const vector<PtrKeyFrame> & _vPtrKFs, const vector<
 }
 
 void GlobalMapper::OptKFPairMatch(PtrKeyFrame _pKF1, PtrKeyFrame _pKF2, map<int,int> & mapMatch,
-                                  vector<g2o::SE3Quat, Eigen::aligned_allocator<g2o::SE3Quat> > & _vSe3KFs, vector<g2o::Vector3D, Eigen::aligned_allocator<g2o::Vector3D> > & _vPt3MPs)
+                                  vector<g2o::SE3Quat, Eigen::aligned_allocator<g2o::SE3Quat> > & _vSe3KFs, 
+                                  vector<g2o::Vector3D, Eigen::aligned_allocator<g2o::Vector3D> > & _vPt3MPs,
+                                  set<int> &sIdMPin1Outlier)
 {
     // Init optimizer
     SlamOptimizer optimizer;
@@ -982,7 +987,7 @@ void GlobalMapper::OptKFPairMatch(PtrKeyFrame _pKF1, PtrKeyFrame _pKF2, map<int,
 
     // Remove outliers by checking 3D measurement error
     double dThreshChi2 = 5.0;
-    set<int> sIdMPin1Outlier;
+    // set<int> sIdMPin1Outlier;
 
     for (auto it = optimizer.edges().begin(); it != optimizer.edges().end(); it ++) {
         g2o::EdgeSE3PointXYZ *pEdge = static_cast<g2o::EdgeSE3PointXYZ*>(*it);

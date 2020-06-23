@@ -139,7 +139,7 @@ void Sparsifier::DoMarginalizeSE3XYZ(const std::vector<g2o::SE3Quat, Eigen::alig
 
         vector<int>::iterator itr;
         itr = find(vIdMP.begin(), vIdMP.end(), idMP);
-        int idMPBlk = itr - vIdMP.begin();
+        int idMPBlk = itr - vIdMP.begin();   // int idMPBlk = vIdMP[itr - vIdMP.begin()]; //i think should like this.
 
         g2o::Matrix3D info = measure.info;
 
