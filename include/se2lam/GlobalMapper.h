@@ -56,7 +56,9 @@ public:
     static void OptKFPair(const vector<PtrKeyFrame> & _vPtrKFs, const vector<PtrMapPoint> & _vPtrMPs,
                    vector<g2o::SE3Quat, Eigen::aligned_allocator<g2o::SE3Quat> > & _vSe3KFs, vector<g2o::Vector3D, Eigen::aligned_allocator<g2o::Vector3D> > & _vPt3MPs);
     static void OptKFPairMatch(PtrKeyFrame _pKF1, PtrKeyFrame _pKF2, map<int, int> & mapMatch,
-                        vector<g2o::SE3Quat, Eigen::aligned_allocator<g2o::SE3Quat> > & _vSe3KFs, vector<g2o::Vector3D, Eigen::aligned_allocator<g2o::Vector3D> > & _vPt3MPs);
+                        vector<g2o::SE3Quat, Eigen::aligned_allocator<g2o::SE3Quat> > & _vSe3KFs, 
+                        vector<g2o::Vector3D, Eigen::aligned_allocator<g2o::Vector3D> > & _vPt3MPs,
+                        set<int> &sIdMPin1Outlier);
 
     // generate MeasSE3XYZ measurement vector
     static void CreateVecMeasSE3XYZ(const vector<PtrKeyFrame> _vpKFs, const vector<PtrMapPoint> _vpMPs,
