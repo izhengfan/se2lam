@@ -355,10 +355,10 @@ bool Track::needNewKF(int nTrackedOldMP, int nMatched){
     bool bNeedKFByOdo = true;
     if(mbUseOdometry){
         Se2 dOdo = mFrame.odom - mpKF->odom;
-        bool c5 = dOdo.theta >= 0.0349f; // Larger than 2 degree
+        bool c5 = fabs(dOdo.theta) >= 0.0349f; // Larger than 2 degree
         //cv::Mat cTc = Config::cTb * toT4x4(dOdo.x, dOdo.y, dOdo.theta) * Config::bTc;
         cv::Mat cTc = Config::cTb * Se2(dOdo.x, dOdo.y, dOdo.theta).toCvSE3() * Config::bTc;
-        cv::Mat xy = cTc.rowRange(0,2).col(3);
+        cv::Mat xy = cTc.rowRange(0,3).col(3);
         bool c6 = cv::norm(xy) >= ( 0.0523f * Config::UPPER_DEPTH * 0.1f ); // 3 degree = 0.0523 rad
 
         bNeedKFByOdo = c5 || c6;
