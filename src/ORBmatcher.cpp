@@ -152,7 +152,7 @@ int ORBmatcher::SearchByBoW(PtrKeyFrame pKF1, PtrKeyFrame pKF2,
     for(int i=0;i<HISTO_LENGTH;i++)
         rotHist[i].reserve(500);
 
-    const float factor = 1.0f/HISTO_LENGTH;
+    const float factor = (float)HISTO_LENGTH / 360.0f ;
 
     int nmatches = 0;
 
@@ -284,7 +284,7 @@ int ORBmatcher::MatchByWindow(const Frame &frame1, Frame &frame2,
     vector<int> rotHist[HISTO_LENGTH];
     for(int i = 0; i < HISTO_LENGTH; i++)
         rotHist[i].reserve(500);
-    const float factor = 1.f / (float)HISTO_LENGTH;
+    const float factor = (float)HISTO_LENGTH / 360.0f ;
 
     vector<int> vMatchesDistance(frame2.N, INT_MAX);
     vector<int> vnMatches21(frame2.N, -1);
