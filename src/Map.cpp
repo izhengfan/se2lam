@@ -948,7 +948,8 @@ void Map::loadLocalGraph(SlamOptimizer &optimizer)
         int id1 = it - mLocalGraphKFs.begin();
 
         {
-            Eigen::Map<Eigen::Matrix3d, RowMajor> info(meas.cov);
+            Eigen::Map<Eigen::Matrix3d, RowMajor> meas_cov(meas.cov);
+            Eigen::Matrix3d info = meas_cov.inverse();
             addEdgeSE2(optimizer, Vector3D(meas.meas), i, id1, info);
         }
 
